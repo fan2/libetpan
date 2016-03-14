@@ -26,6 +26,7 @@ Base SDK & Supported Platforms
 #### Search Paths
 Header Search Paths
 
+Search Path        | expand
 -------------------|--------------
 $(SRCROOT)/..      | libetpan/build-mac/..
 $(SRCROOT)/include | libetpan/build-mac/include
