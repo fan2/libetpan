@@ -12,6 +12,9 @@
 *.ncb
 *.user
 
+DerivedData/
+Thumbs.db
+
 project.xcworkspace/
 xcuserdata/
 
