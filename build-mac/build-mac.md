@@ -62,7 +62,7 @@ rsync -aL "$SRCROOT/../include/libetpan/" "$BUILT_PRODUCTS_DIR/include/libetpan/
 
 2. 将 `/libetpan/include/libetpan` 同步复制到发布到 `libetpan/build-mac/DerivedData/libetpan/Build/Products/Debug/include/libetpan/` 目录。
 
-	**rsync**
+	[**rsync**](http://www.ibm.com/developerworks/cn/aix/library/au-spunix_rsync/)
 	
 	```
 	-a, --archive               archive mode; same as -rlptgoD (no -H)
