@@ -191,7 +191,7 @@ int main(int argc, char ** argv)
 	mkdir("download", 0700);
 	
 	imap = mailimap_new(0, NULL);
-	r = mailimap_ssl_connect(imap, "imap.gmail.com", 993);
+	r = mailimap_ssl_connect(imap, "imap.163.com", 993); // "imap.gmail.com"
 	fprintf(stderr, "connect: %i\n", r);
 	check_error(r, "could not connect to server");
 	

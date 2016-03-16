@@ -26,7 +26,7 @@ int main(int argc, char ** argv)
 	mkdir("download", 0700);
 	
 	pop3 = mailpop3_new(0, NULL);
-	r = mailpop3_ssl_connect(pop3, "pop.gmail.com", 995);
+	r = mailpop3_ssl_connect(pop3, "pop.163.com", 995); // "pop.gmail.com"
 	check_error(r, "connect failed");
 	
 	r = mailpop3_user(pop3, argv[1]);
