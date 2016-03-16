@@ -3,17 +3,20 @@
 可在 Mac OS X 下编译调试命令行demo：`smtpsend` / `pop-sample` / `imap-sample`
 
 ## 邮箱地址
-[163 免费邮客户端设置的 POP3、SMTP、IMAP 地址](http://help.163.com/09/1223/14/5R7P3QI100753VB8.html)
+[QQ邮箱的POP3与SMTP服务器是什么？](https://kf.qq.com/faq/120322fu63YV130422nqIrqu.html)  
+[透過 Outlook、Apple Mail 或其他郵件用戶端設定 Gmail](https://support.google.com/mail/troubleshooter/1668960?hl=zh-Hant)  
+[163 免费邮客户端设置的 POP3、SMTP、IMAP 地址](http://help.163.com/09/1223/14/5R7P3QI100753VB8.html)  
 [Gmail，QMail，163邮箱的 IMAP/SMTP/POP3 地址](http://blog.wpjam.com/m/gmail-qmail-163mail-imap-smtp-pop3/)
 
-本人测试用例使用 163 邮箱。
+本人测试用例使用 163 邮箱。  
+163 邮箱默认开启了 SMTP 和 POP3 服务，可登录到 [Web Mail](http://mail.163.com/) 中[开启 IMAP 服务](https://github.com/fan2/mailcore2/blob/master/example/ios/iOS-UI-Tests(IMAP%40163).md#开启-imap-服务)。测试 Demo 需要使用客户端授权独立密码。
 
 ## smtpsend
 ### call flow
 
 > int main(int argc, char **argv)
->> int getopt(int, char * const [], const char *)
->> int collect(struct mem_message *message)
+>> int getopt(int, char * const [], const char *)  
+>> int collect(struct mem_message *message)  
 >>>  read(STDIN_FILENO)
 >>
 >> int send_message(char *data, size_t len, char**rcpts)
@@ -109,12 +112,12 @@ mailsmtp_starttls: TLS not available on server for temporary reason
 ### call flow
 
 > int main(int argc, char **argv)
->> pop3 = mailpop3_new(0, NULL);
->> mailpop3_ssl_connect(pop3, "pop.gmail.com", 995);
->> mailpop3_user(pop3, argv[1]);
->> mailpop3_pass(pop3, argv[2]);
->> mailpop3_list(pop3, &list);
->> mailpop3_quit(pop3);
+>> pop3 = mailpop3_new(0, NULL);  
+>> mailpop3_ssl_connect(pop3, "pop.gmail.com", 995);  
+>> mailpop3_user(pop3, argv[1]);  
+>> mailpop3_pass(pop3, argv[2]);  
+>> mailpop3_list(pop3, &list);  
+>> mailpop3_quit(pop3);  
 >> mailpop3_free(pop3);
 
 ### syntax
@@ -161,12 +164,12 @@ fetched 12 1tbiygMuuVQG2AyizAAAs2
 ### call flow
 
 > int main(int argc, char **argv)
->> imap = mailimap_new(0, NULL);
->> mailimap_ssl_connect(imap, "imap.gmail.com", 993);
->> mailimap_login(imap, argv[1], argv[2]);
->> mailimap_select(imap, "INBOX");
->> fetch_messages(imap);
->> mailimap_logout(imap);
+>> imap = mailimap_new(0, NULL);  
+>> mailimap_ssl_connect(imap, "imap.gmail.com", 993);  
+>> mailimap_login(imap, argv[1], argv[2]);  
+>> mailimap_select(imap, "INBOX");  
+>> fetch_messages(imap);  
+>> mailimap_logout(imap);  
 >> mailimap_free(imap);
 
 ### usage
